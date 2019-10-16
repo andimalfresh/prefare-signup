@@ -1,0 +1,228 @@
+.Signup {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: Arial, Helvetica, sans-serif; 
+    background-color:ghostwhite;
+    font-size:  14;
+    padding: 25px;
+    opacity: .90;
+    .h2 {
+        
+        font-weight: 900;
+        color:#4b4f54;
+    }
+    p {
+        font-size: 24px;
+        color: #4b4f54
+    }
+        .formInput {
+            -moz-appearance: none;
+            appearance: none;
+            display: inline-block;
+            margin: 0;
+            padding: 8px 8px;
+            padding-bottom: 0;
+            text-align: center;
+            letter-spacing: 1px;
+            color: #ff8d6a;
+            border: 0;
+            border-bottom: 2px dotted #b5b3b3;
+            outline: none;
+            background-color: transparent;
+            font-size: .75em;
+            font-weight: 500;
+            width: 200px;
+        }
+
+    .Me {
+        background-color:ghostwhite;
+        width: 80vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        // font-family: 'Times New Roman', Times, serif;
+        // color: #ff8d6a;
+        .h2 {
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 900;
+            color:#4b4f54;
+        }
+        .exerpt {
+            font-family: 'Times New Roman', Times, serif; 
+        }
+        .exerpt2 {
+            font-family: 'Times New Roman', Times, serif;
+            color: #ff8d6a;
+        }
+        p {
+            font-size: 24px;
+            color: #4b4f54
+        }
+        .formInputB {
+            -moz-appearance: none;
+            appearance: none;
+            display: inline-block;
+            margin: 0;
+            padding: 8px 8px;
+            padding-bottom: 0;
+            text-align: center;
+            letter-spacing: 1px;
+            color: #ff8d6a;
+            border: 0;
+            border-bottom: 2px dotted #b5b3b3;
+            outline: none;
+            background-color: transparent;
+            font-size: 1em;
+            font-weight: 500;
+            width: 75px;
+        }
+        .formInputC {
+            -moz-appearance: none;
+            appearance: none;
+            display: inline-block;
+            margin: 0;
+            padding: 8px 8px;
+            padding-bottom: 0;
+            text-align: center;
+            letter-spacing: 1px;
+            color: #ff8d6a;
+            border: 0;
+            border-bottom: 2px dotted #b5b3b3;
+            outline: none;
+            background-color: transparent;
+            font-size: 1em;
+            font-weight: 500;
+            width: 125px;
+        }
+    }
+    .Preferences {
+        width: 80vw;
+        background-color:ghostwhite;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .Plan {
+        width: 80vw;
+        background-color: ghostwhite;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .Build {
+        width: 80vw;
+        background-color: ghostwhite;
+    }
+}
+
+// .signUpA {
+    // background-image: url(../../img/avacadoSalmon.jpg);
+    // background-repeat: no-repeat;
+//     background-color: #cff0e8;
+//     padding: 50px;
+
+//     .formTextGreen {
+//         color: #4daa95;
+//     }
+//     .formWrapper {
+//         width: 60vw;
+//         height: auto;
+//         margin: auto;
+//         background-color:ghostwhite;
+//         font-family: Arial, Helvetica, sans-serif;
+//         font-size:  14;
+//         padding: 25px;
+//         opacity: .90;
+//         p {
+//                 padding: 20px;
+//         }
+//         .formInput:focus,.formInputB:focus,.formInputC:focus, .formInputD:focus {
+//             outline: none;
+//             border-bottom: 2px solid #ff8d6a;
+//         }
+//         .formInput {
+//             -moz-appearance: none;
+//             appearance: none;
+//             display: inline-block;
+//             margin: 0;
+//             padding: 8px 8px;
+//             padding-bottom: 0;
+//             text-align: center;
+//             letter-spacing: 1px;
+//             color: #ff8d6a;
+//             border: 0;
+//             border-bottom: 2px dotted #b5b3b3;
+//             outline: none;
+//             background-color: transparent;
+//             font-size: .75em;
+//             font-weight: 500;
+//             width: 200px;
+//         }
+//         .formInputB {
+//             -moz-appearance: none;
+//             appearance: none;
+//             display: inline-block;
+//             margin: 0;
+//             padding: 8px 8px;
+//             padding-bottom: 0;
+//             text-align: center;
+//             letter-spacing: 1px;
+//             color: #ff8d6a;
+//             border: 0;
+//             border-bottom: 2px dotted #b5b3b3;
+//             outline: none;
+//             background-color: transparent;
+//             font-size: 1em;
+//             font-weight: 500;
+//             width: 75px;
+//         }
+//         .formInputC {
+//             -moz-appearance: none;
+//             appearance: none;
+//             display: inline-block;
+//             margin: 0;
+//             padding: 8px 8px;
+//             padding-bottom: 0;
+//             text-align: center;
+//             letter-spacing: 1px;
+//             color: #ff8d6a;
+//             border: 0;
+//             border-bottom: 2px dotted #b5b3b3;
+//             outline: none;
+//             background-color: transparent;
+//             font-size: 1em;
+//             font-weight: 500;
+//             width: 125px;
+//         }
+//         .formB {
+//             display: none
+//         }
+//         .formC {
+//             display: none
+//         }
+//         .formD {
+//             display: none
+//         }
+//         .signUpButton {
+//                 background-color: #ff9e16;
+//                 color:white;
+//                 border-radius: 500px;
+//                 padding: 8px 16px;
+//                 font-weight: 300;
+//                 font-size: 14px;
+//                 border: 2px solid #ff9e16;
+//         }
+//     }
+// }
+
+// @media only screen and (max-width: 768px) {
+//     .formWrapper {
+//         font-size: 1.50em
+//     }
+// }

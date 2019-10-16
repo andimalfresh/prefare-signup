@@ -1,26 +1,45 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import Signup from './components/Signup'
 
-function App() {
+import styles from './App.css';
+
+class App extends Component {
+  constructor() {
+    super()
+    this.state = {
+      name:'',
+      address_1:'',
+      address_2:'',
+      city:'',
+      state:'',
+      zip:'',
+      email:'',
+      signup_date:'',
+      meals_per_week:'',
+      delivery_day:'',
+      account_on_hold: null,
+      gluten_free: false,
+      vegetarian: false,
+      number_of_servings:'',
+      phone: '',
+      meal_credits: '',
+      showInputFormB: false,
+      showInputFormC: false,
+      showInputFormD: false,
+      showHiddenForm: false,
+      menuItems: [],
+      retail_price: '',
+      menuItemSelected:'',
+      ordersCount:''
+    }
+  }
+
+  render() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={styles.App}>
+      <Signup />
     </div>
-  );
+    );
+  }
 }
-
 export default App;
