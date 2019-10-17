@@ -15,32 +15,54 @@ const Signup = (props) => {
         {/* status bar */}
         <div className={styles.Me}>
             <h2>Me</h2>
-            <span className={styles.exerpt}>Tell us about yourself</span>
-            <p>I’d love easy, fresh, delicious, local, fast, prepped meals <input type="text" className={styles.formInputB} onKeyDown={props.handleFormB} name="number_of_servings"  onChange={props.getFormData } /> day(s) a week.</p>
+            <div className={styles.exerpt}>
+                Tell us about yourself
+            </div>
+            <div>
+                I’d love easy, fresh, delicious, local, fast, prepped meals
+                <input type="text" className={styles.formInputB} onKeyDown={props.handleFormB} name="number_of_servings"  onChange={props.getFormData } /> day(s) a week.
+            </div>
 
-            <p>My first name is <input type="text" className={styles.formInput} onKeyDown={props.handleFormB} name="name"  onChange={props.getFormData } /></p> 
+            <div style={props.showInputFormB ? {display: 'block'} : { display: 'none' }} className={styles.formB}>
+                My first name is
+                <input type="text" className={styles.formInput} onKeyDown={props.handleFormC} name="name"  onChange={props.getFormData } />
+            </div> 
 
-            <p>and my email is <input type="text" className={styles.formInput} onKeyDown={props.handleFormB} name="email"  onChange={props.getFormData }/></p>
-            <span className={styles.exerpt2}>(you can use your email to access your account & recommendations)</span>
-        </div>
-
-   <div className={styles.Preferences}>
-            <h2>My Preferences</h2>
-            Let’s learn more about what foods you and your family like and the best time to deliver.
-            <p>I don’t eat <input type="text" className={styles.formInput} onKeyDown={props.handleFormB} name="number_of_servings"  onChange={props.getFormData } /> 
-                gluten, meat, other - write in
-            </p> 
-
-            <p><div className={styles.optionSelect}>
-                I prefer to get my freshly pre-prepped meals on&nbsp;                
-                    <Select options={options2} />
+            <div style={props.showInputFormC ? {display: 'block'} : { display: 'none' }} className={styles.formD}>
+                <div>
+                and my email is <input type="text" className={styles.formInput} onKeyDown={props.handleFormD} name="email"  onChange={props.getFormData }/>
                 </div>
-                
-            </p>
+                <div>
+                (you can use your email to access your account & recommendations)
+                </div>
+            </div>
+        </div>
+   <div className={styles.Preferences} style={props.showInputFormD ? {display: 'block'} : { display: 'none' }}>
+                <h2 style={props.showInputFormC ? {display: 'block'} : { display: 'none' }} className={styles.formC}>
+                    My Preferences
+                </h2>
+                <div className={styles.exerpt} style={props.showInputFormC ? {display: 'block'} : { display: 'none' }}>
+                    Let’s learn more about what foods you and your family like and the best time to deliver.
+                </div>
+                <div>
+                    I don’t eat <input type="text" className={styles.formInputB} onKeyDown={props.handleFormB} name="number_of_servings"  onChange={props.getFormData } />
+                </div>
+                <div className={styles.exerpt2} style={props.showInputFormC ? {display: 'block'} : { display: 'none' }} className={styles.formC}>
+                    (gluten, meat, other - write in)
+                </div>
+                <div style={props.showInputFormC ? {display: 'block'} : { display: 'none' }} className={styles.formC}>
+                    <div className={styles.optionSelect}>
+                        I prefer to get my freshly pre-prepped meals on&nbsp;                
+                        <Select classNamePrefix={styles.optionSelect} options={options2} />
+                    </div>
+                <button style={props.showInputFormD ? {display: 'block'} : { display: 'none' }} className={styles.signUpButton} onClick={props.formSubmission}>
+                    SIGN ME UP
+                </button>
+            </div>
  
             
 
-              <p>What looks best to you?</p>
+              <div>What looks best to you?</div>
 
               Images of diverse food selection w/ option to swipe right/left or select boxes in grid
     </div>
@@ -50,7 +72,7 @@ const Signup = (props) => {
         <div className={styles.Plan}>
              <h2>Recommended Plan</h2>
 
-            <p>Name, we’ve selected the following plan - perfect for you/ your family.</p>
+            <div>Name, we’ve selected the following plan - perfect for you/ your family.</div>
 
              recommended plan 
        </div>
