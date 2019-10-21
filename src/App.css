@@ -14,6 +14,13 @@
   body {
     margin: 0px;
   }
+  h2 {
+    padding: 0px;
+    margin: 5px;
+  }
+  a:link {
+    text-decoration: none;
+  }
   .Signup {
       width: 100vw;
       display: flex;
@@ -31,14 +38,20 @@
       margin: 0px;
       text-align: center;
     }
+    li {
+      padding: 5px;
+      font-size:16px;
+    }
       .exerpt {
         font-family: 'SpectralRegular','Times New Roman', Times, serif; 
         font-size: 12px;
+        padding: 10px
       }
       .exerpt2 {
         font-family: 'SpectralRegular';
         color: #ff8d6a;
         font-size:12px;
+        padding: 10px
       }
       .formInputB {
         -moz-appearance: none;
@@ -146,6 +159,7 @@
           flex-direction: column;
         }
       .Plan {
+        padding: 20px;
           width: 80vw;
           background-color: ghostwhite;
           display: flex;
@@ -160,6 +174,11 @@
       .optionSelect {
         justify-content: center;
         flex-direction: column;
+      }
+      .optionSelect2 {
+        justify-content: center;
+        flex-direction: column;
+        width: 125px;
       }
       .formB, .formC ,.formD ,.formE ,.formF {
           padding: 25px;
@@ -187,15 +206,19 @@
         flex-direction: column;
       }
       .planCard {
+        font-size: 16px;
         background: white;
-        border-radius: 25;
+        border-radius: 25px ;
         display: flex;
         flex-direction: column;
-        padding: 40px;
+        padding: 15px;
       }
-      .cardLinks {
-        width: 250px;
+      .planTitle {
+        padding: 10px;
+      }
+      .selectRow {
         display: flex;
-        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
       }
-  

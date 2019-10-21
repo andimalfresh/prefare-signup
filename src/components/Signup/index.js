@@ -8,6 +8,35 @@ const options2 = [
     {value: 0, label: 'Sunday'},
     {value: 1, label: 'Monday'}
 ]
+const optionsServings = [
+    {value: 27, label: '2'},
+    {value: 47, label: '4'},
+    {value: 65.75, label: '6'},
+    {value: 85.28, label: '8'},
+    {value: 105.00, label: '10'},
+    {value: 122.88, label: '12'},
+    {value: 143.35, label: '14'},
+    {value: 163.84, label: '16'}
+]
+const customStyles = {
+    option: (provided, state) => ({
+      ...provided,
+      borderBottom: '1px dotted grey',
+      color: state.isSelected ? 'red' : 'blue',
+      padding: 2,
+    }),
+    control: () => ({
+      // none of react-select's styles are passed to <Control />
+      width: 75,
+    }),
+    singleValue: (provided, state) => {
+      const opacity = state.isDisabled ? 0.5 : 1;
+      const transition = 'opacity 300ms';
+  
+      return { ...provided, opacity, transition };
+    }
+  }
+
 const Signup = (props) => {
     return (
   <div className='Signup'>
@@ -18,7 +47,7 @@ const Signup = (props) => {
         </div>
                 <div>
                     I’d love easy, fresh, delicious, local, fast, prepped meals
-                    <input type='text' className='formInputB' onKeyDown={props.handleFormB} name='number_of_servings'  onChange={props.getFormData } /> day(s) a week.
+                    <input type='text' className='formInputB' onKeyDown={props.handleFormB} name='meals_per_week'  onChange={props.getFormData } /> day(s) a week.
                 </div>
 
                 <div style={props.showInputFormB ? {display: 'block'} : { display: 'none' }} className='formB'>
@@ -40,7 +69,7 @@ const Signup = (props) => {
             Let’s learn more about what foods you and your family like and the best time to deliver.
         </div>
         <div>
-            I don’t eat <input type='text' className='formInputB' onKeyDown={props.handleFormE} name='dietRestrictions'  onChange={props.getFormData } />
+            I don’t eat <input type='text' className='formInputB' onKeyDown={props.handleFormE} name='dietRestrictions'  onChange={props.getFormData } />.
         </div>
         <div className='exerpt2'>
             (gluten, meat, other - write in)
@@ -70,20 +99,19 @@ const Signup = (props) => {
             </svg>
         
             <div className='Plan'>
-                <div>
+                <div className="planTitle">
                     {props.name}, we’ve selected the following plan - perfect for you/ your family.
                 </div>
                 <div className='planCard'>
                     <ul>
-                        <li>{props.mealPlan.title}</li>
-                        <li>{props.number_of_servings}</li>
-                        <li>{props.mealPlan.tagline}</li>
-                        <li>{props.mealPlan.priceString}</li>
+                        <li><h2>{props.mealPlan[props.x].title}</h2></li>
+                        <li className="planTagline">{props.mealPlan[props.x].tagline}</li>
+                        <li>{props.meals_per_week} meals for </li>
+                        <li><div className="selectRow"><Select className='optionSelect2' onChange={null} options={optionsServings} styles={customStyles} /> people.</div></li>
+                        <li>{props.mealPlan[props.x].priceString}</li>
+                        <li><button className='orderButton'>Continue to check-out</button></li>
+                        <li><a href='./Build' className='exerpt' >This plan doesn’t do it for me</a></li>
                     </ul>
-                        <div className='cardLinks'>
-                            <button className='orderButton'>Continue to check-out</button>
-                            <a href='./Build' >This plan doesn’t do it for me</a>
-                        </div>
                 </div>
                     <span className='exerpt'>Select your scratch prepared meals after check-out!</span>
             </div>

@@ -35,11 +35,24 @@ class App extends Component {
       menuItemSelected:'',
       ordersCount:'',
       percentage: 0,
-      mealPlan: {
-        title: 'Veggie',
-        tagline: 'Meat-free dishes that make vegetables look sexy',
-        priceString: '$52 per week | FREE Shipping'
-      }
+      mealPlan: [
+                  {
+                    title: 'Original',
+                    tagline: 'All the good stuff, delivered straight to your door!',
+                    priceString: '$52 per week | FREE Shipping'
+                  },
+                  {
+                    title: 'Veggie',
+                    tagline: 'Meat-free dishes that make vegetables look sexy!',
+                    priceString: '$52 per week | FREE Shipping'
+                  },                    
+                  {  
+                    title: 'Gluten-Free',
+                    tagline: 'Gluten-Free dishes that make vegetables look sexy!',
+                    priceString: '$52 per week | FREE Shipping'
+                  }
+                ],
+      x: 0
     }
   }
   checkDietRestrictions = () => {
@@ -47,14 +60,21 @@ class App extends Component {
     console.log('Checking Diet')
     if (this.state.dietRestrictions === 'meat' ) {
       this.setState ({
-        vegetarian: true
+        vegetarian: true,
+        x:1
       })
     } else if (this.state.dietRestrictions === 'gluten') {
       this.setState ({
-        gluten_free: true
+        gluten_free: true,
+        x:2
       })   
-    } 
+    } else {
+      this.setState ({
+        x:0
+      })
+    }
   }
+
   getDeliveryDay = (event) => {
     console.log('DDDay')
     const {value} = event.target
@@ -126,7 +146,9 @@ class App extends Component {
         getFormData={this.getFormData}
         checkDietRestrictions={this.checkDietRestrictions}
         mealPlan={this.state.mealPlan}
+        meals_per_week={this.state.meals_per_week}
         number_of_servings={this.state.number_of_servings}
+        x={this.state.x}
       />
     </div>
     );
