@@ -66,19 +66,29 @@ const Signup = (props) => {
                
     <div style={props.showInputFormG ? {display: 'block'} : { display: 'none' }} className='formG'>
         <svg className='Wave-crest' viewBox='0 0 100 100' preserveAspectRatio='none' version='1.1' style={{height: '80px'}}>
-            <path d='M100 100 H0 V100 H0 V50 C 33.3333 100, 66.6666 0, 100 50'></path>
-        </svg>
-    </div> 
-    <div style={props.showInputFormG ? {display: 'block'} : { display: 'none' }} className='formG'>
-        <div className='Plan'>
-
-            <div>
-                {props.name}, we’ve selected the following plan - perfect for you/ your family.
+                <path d='M100 100 H0 V100 H0 V50 C 33.3333 100, 66.6666 0, 100 50'></path>
+            </svg>
+        
+            <div className='Plan'>
+                <div>
+                    {props.name}, we’ve selected the following plan - perfect for you/ your family.
+                </div>
+                <div className='planCard'>
+                    <ul>
+                        <li>{props.mealPlan.title}</li>
+                        <li>{props.number_of_servings}</li>
+                        <li>{props.mealPlan.tagline}</li>
+                        <li>{props.mealPlan.priceString}</li>
+                    </ul>
+                        <div className='cardLinks'>
+                            <button className='orderButton'>Continue to check-out</button>
+                            <a href='./Build' >This plan doesn’t do it for me</a>
+                        </div>
+                </div>
+                    <span className='exerpt'>Select your scratch prepared meals after check-out!</span>
             </div>
-
-        </div>
-    
-   <div className='Build'>
+    </div>
+   {/* <div className='Build'>
        <div>Build your plan</div>
         <div>
                 <div> 
@@ -89,8 +99,8 @@ const Signup = (props) => {
                 </div>
                 SELECT THIS PLAN
             </div>
-        </div>
-    </div>
+        </div> */}
+        
         
         
         </div> 

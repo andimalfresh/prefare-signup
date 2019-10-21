@@ -34,7 +34,12 @@ class App extends Component {
       retail_price: '',
       menuItemSelected:'',
       ordersCount:'',
-      percentage: 0
+      percentage: 0,
+      mealPlan: {
+        title: 'Veggie',
+        tagline: 'Meat-free dishes that make vegetables look sexy',
+        priceString: '$52 per week | FREE Shipping'
+      }
     }
   }
   checkDietRestrictions = () => {
@@ -104,7 +109,8 @@ class App extends Component {
   return (
     <div className='App'>
       <Progressbar  />
-      <Signup 
+      <Signup
+        name={this.state.name} 
         handleFormB={this.handleFormB} 
         handleFormC={this.handleFormC} 
         handleFormD={this.handleFormD}
@@ -119,6 +125,8 @@ class App extends Component {
         getDeliveryDay = {this.getGetDeliveryDay}
         getFormData={this.getFormData}
         checkDietRestrictions={this.checkDietRestrictions}
+        mealPlan={this.state.mealPlan}
+        number_of_servings={this.state.number_of_servings}
       />
     </div>
     );
