@@ -1,5 +1,5 @@
 import React from 'react'
-import Filler from './components/Filler'
+import Filler from '../Filler'
 
 
 const Progressbar = (props) => {

@@ -1,22 +1,181 @@
-.App {
-  text-align: center;
-}
 
-.App-logo {
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #09d3ac;
-}
+@font-face {
+    font-family: 'HarmoniaSans';
+    src: url('./fonts/HarmoniaSans.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'SpectralRegular';
+    src: url('./fonts/SpectralRegular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  body {
+    margin: 0px;
+  }
+  .Signup {
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      font-family: 'HarmoniaSans', Arial, Helvetica, sans-serif;
+      font-size:  24px;
+      background-color:white;
+      opacity: .90;
+    }
+      .exerpt {
+        font-family: 'SpectralRegular','Times New Roman', Times, serif; 
+        font-size: 12px;
+      }
+      .exerpt2 {
+        font-family: 'SpectralRegular';
+        color: #ff8d6a;
+        font-size:12px;
+      }
+      .formInputB {
+        -moz-appearance: none;
+        appearance: none;
+        display: inline-block;
+        margin: 0;
+        padding: 8px 8px;
+        padding-bottom: 0;
+        text-align: center;
+        letter-spacing: 1px;
+        color: #ff8d6a;
+        border: 0;
+        border-bottom: 2px dotted #b5b3b3;
+        outline: none;
+        background-color: transparent;
+        font-size: 1em;
+        font-weight: 500;
+        width: 75px;
+    }
+    .formInputC {
+        -moz-appearance: none;
+        appearance: none;
+        display: inline-block;
+        margin: 0;
+        padding: 8px 8px;
+        padding-bottom: 0;
+        text-align: center;
+        letter-spacing: 1px;
+        color: #ff8d6a;
+        border: 0;
+        border-bottom: 2px dotted #b5b3b3;
+        outline: none;
+        background-color: transparent;
+        font-size: 1em;
+        font-weight: 500;
+        width: 125px;
+    }
+    .formB {
+      display: none
+    }
+    .formC {
+      display: none
+    }
+    .formD {
+      display: none
+    }
+    .formE {
+        display: none
+      }
+    .formF {
+        display: none
+      }
+    .formG {
+      display: none
+    }
+    .signUpButton {
+          background-color: #ff9e16;
+          color:white;
+          border-radius: 500px;
+          padding: 8px 16px;
+          font-weight: 300;
+          font-size: 14px;
+          border: 2px solid #ff9e16;
+    }
+    .title {
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 900;
+      color:#4b4f54;
+  }
+    .formInput {
+          -moz-appearance: none;
+          appearance: none;
+          display: inline-block;
+          margin: 0;
+          padding: 8px 8px;
+          padding-bottom: 0;
+          text-align: center;
+          letter-spacing: 1px;
+          color: #ff8d6a;
+          border: 0;
+          border-bottom: 2px dotted #b5b3b3;
+          outline: none;
+          background-color: transparent;
+          font-size: .75em;
+          font-weight: 500;
+          width: 200px;
+      }
+      .Me {
+          background-color:white;
+          width: 80vw;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+      }
+  
+  
+      .Pref {
+          width: 80vw;
+          background-color:white;
+          display:flex;
+          align-items: center;
+          display: none;
+          justify-content: center;
+          flex-direction: column;
+        }
+      .Plan {
+          width: 80vw;
+          background-color: ghostwhite;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+      }
+      .Build {
+          width: 80vw;
+          background-color: ghostwhite;
+      }
+      .optionSelect {
+        justify-content: center;
+        flex-direction: column;
+      }
+      .formB, .formC ,.formD ,.formE ,.formF {
+          padding: 25px;
+      }
+      .optionContain {
+        width: 150px;
+      }
+      .optionAlign {
+        display: flex;
+        justify-content: center;
+      }
+      .Wave-crest {
+        width: 100vw;
+        fill: ghostwhite;
+      }
+      .Choose {
+        width: 100vw;
+        background-color:ghostwhite;
+        font-family: 'HarmoniaSans', Arial, Helvetica, sans-serif;
+        font-size:  24px;
+        display:flex;
+        justify-content: center;
+        flex-direction: column;
+      }
+  
