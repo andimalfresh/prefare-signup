@@ -18,24 +18,6 @@ const optionsServings = [
     {value: 143.35, label: '14'},
     {value: 163.84, label: '16'}
 ]
-const customStyles = {
-    option: (provided, state) => ({
-      ...provided,
-      borderBottom: '1px dotted grey',
-      color: state.isSelected ? 'red' : 'blue',
-      padding: 2,
-    }),
-    control: () => ({
-      // none of react-select's styles are passed to <Control />
-      width: 75,
-    }),
-    singleValue: (provided, state) => {
-      const opacity = state.isDisabled ? 0.5 : 1;
-      const transition = 'opacity 300ms';
-  
-      return { ...provided, opacity, transition };
-    }
-  }
 
 const Signup = (props) => {
     return (
@@ -100,14 +82,14 @@ const Signup = (props) => {
         
             <div className='Plan'>
                 <div className="planTitle">
-                    {props.name}, we’ve selected the following plan - perfect for you/ your family.
+                    {props.name}, we’ve selected the following plan - perfect for you / your family.
                 </div>
                 <div className='planCard'>
                     <ul>
                         <li><h2>{props.mealPlan[props.x].title}</h2></li>
                         <li className="planTagline">{props.mealPlan[props.x].tagline}</li>
                         <li>{props.meals_per_week} meals for </li>
-                        <li><div className="selectRow"><Select className='optionSelect2' onChange={null} options={optionsServings} styles={customStyles} /> people.</div></li>
+                        <li><div className="selectRow"><Select className='optionSelect2' onChange={null} options={optionsServings} /> &nbsp; people.</div></li>
                         <li>{props.mealPlan[props.x].priceString}</li>
                         <li><button className='orderButton'>Continue to check-out</button></li>
                         <li><a href='./Build' className='exerpt' >This plan doesn’t do it for me</a></li>
@@ -115,22 +97,7 @@ const Signup = (props) => {
                 </div>
                     <span className='exerpt'>Select your scratch prepared meals after check-out!</span>
             </div>
-    </div>
-   {/* <div className='Build'>
-       <div>Build your plan</div>
-        <div>
-                <div> 
-                    1.Choose your preference
-                </div>
-                <div>
-                    2.Review your order
-                </div>
-                SELECT THIS PLAN
-            </div>
-        </div> */}
-        
-        
-        
+    </div>     
         </div> 
     </div>
     )

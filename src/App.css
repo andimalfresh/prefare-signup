@@ -116,6 +116,11 @@
           font-size: 14px;
           border: 2px solid #ff9e16;
     }
+    .signUpButton:hover, .orderButton:hover {
+      border-color: #cff0e8;
+      background-color: #cff0e8;
+      color: White;
+    }
     .title {
       font-family: Arial, Helvetica, sans-serif;
       font-weight: 900;
@@ -160,7 +165,7 @@
         }
       .Plan {
         padding: 20px;
-          width: 80vw;
+          width: 100vw;
           background-color: ghostwhite;
           display: flex;
           justify-content: center;
@@ -178,7 +183,7 @@
       .optionSelect2 {
         justify-content: center;
         flex-direction: column;
-        width: 125px;
+        width: 75px;
       }
       .formB, .formC ,.formD ,.formE ,.formF {
           padding: 25px;
@@ -196,14 +201,16 @@
         padding: 0px;
         margin: 0px;
       }
-      .Build, .Plan {
+      .buildPlan {
         width: 100vw;
-        background-color:ghostwhite;
-        font-family: 'HarmoniaSans', Arial, Helvetica, sans-serif;
-        font-size:  24px;
-        display:flex;
+        display: flex;
         justify-content: center;
+        align-items: center;
         flex-direction: column;
+        font-family: 'HarmoniaSans', Arial, Helvetica, sans-serif;
+        font-size:  16px;
+        background-color:white;
+        opacity: .90;
       }
       .planCard {
         font-size: 16px;
@@ -221,4 +228,28 @@
         justify-content: center;
         align-items: center;
         flex-direction: row;
+      }
+      .buildCard {
+        display: flex;
+        flex-direction: row;
+        background-color: ghostwhite;
+        padding : 25px;
+      }
+      .menuRow {
+        display:flex;
+        justify-content: center;
+      }
+      .menuType {
+        padding: 15px;
+        display:flex;
+        justify-content: center;
+        border: dotted .5px grey;
+        border-radius: 15px;
+      }
+      .menuType:hover {
+        background-color: #cff0e8;
+        color: White;
+      }
+      .quantityRow {
+        padding: 15px
       }

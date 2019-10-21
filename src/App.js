@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import Signup from './components/Signup'
 import Progressbar from './components/ProgressBar'
+import Buildyourplan from './components/Buildyourplan';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends Component {
   constructor() {
@@ -150,6 +152,7 @@ class App extends Component {
         number_of_servings={this.state.number_of_servings}
         x={this.state.x}
       />
+      <Buildyourplan />
     </div>
     );
   }
