@@ -34,7 +34,7 @@ const Signup = (props) => {
             Tell us about yourself
         </div>
                 <div>
-                    I’d love easy, fresh, delicious, local, fast, prepped meals
+                    I’d love fresh and fast, prepped meals
                     <input type='text' className='formInputB' onKeyDown={props.handleFormB} name='meals_per_week'  onChange={props.getFormData } /> day(s) a week.
                 </div>
 
