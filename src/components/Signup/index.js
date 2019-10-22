@@ -62,9 +62,7 @@ const Signup = (props) => {
                      When preparing meals this the most important factor:
                 </div>
                 <div className='optionAlign'>
-                    <div className='optionContain'>
-                        <Select className='optionSelect3' onChange={props.handleFormF} options={options3} />
-                    </div>
+                    <Select className='optionSelect3' onChange={props.handleFormF} options={options3} />
                 </div>
             </div>
          </div>
