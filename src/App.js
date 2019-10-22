@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Signup from './components/Signup'
 import Progressbar from './components/ProgressBar'
-import Buildyourplan from './components/Buildyourplan';
+// import Buildyourplan from './components/Buildyourplan';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -40,7 +40,7 @@ class App extends Component {
       mealPlan: [
                   {
                     title: 'Original',
-                    tagline: 'All the good stuff, delivered straight to your door!',
+                    tagline: 'All the good stuff, delivered straight into your cooler!',
                     priceString: '$52 per week | FREE Shipping'
                   },
                   {
@@ -152,7 +152,7 @@ class App extends Component {
         number_of_servings={this.state.number_of_servings}
         x={this.state.x}
       />
-      <Buildyourplan />
+      {/* <Buildyourplan /> */}
     </div>
     );
   }

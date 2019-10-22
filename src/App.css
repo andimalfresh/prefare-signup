@@ -185,6 +185,12 @@
         flex-direction: column;
         width: 75px;
       }
+      .optionSelect3 {
+        font-style: 16px;
+        justify-content: center;
+        flex-direction: column;
+        width: 200px;
+      }
       .formB, .formC ,.formD ,.formE ,.formF {
           padding: 25px;
       }

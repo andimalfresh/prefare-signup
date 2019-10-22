@@ -18,11 +18,17 @@ const optionsServings = [
     {value: 143.35, label: '14'},
     {value: 163.84, label: '16'}
 ]
+const options3= [
+    {value: 0, label: 'The taste and presentation'},
+    {value: 1, label: 'The cost of the meal'},
+    {value: 2, label: 'The time it takes to prepare'},
+    {value: 3, label: 'How healty the food is'}
+]
 
 const Signup = (props) => {
     return (
   <div className='Signup'>
-        status bar
+        <span className='exerpt'>status bar </span>
     <div className='Me'>
         <div className='exerpt'>
             Tell us about yourself
@@ -50,12 +56,34 @@ const Signup = (props) => {
         <div className='exerpt' style={props.showInputFormD ? {display: 'block'} : { display: 'none' }}>
             Let’s learn more about what foods you and your family like and the best time to deliver.
         </div>
+        <div style={props.showInputFormD ? {display: 'block'} : { display: 'none' }} className='formD'>
+            <div className='optionSelect'>
+                <div>
+                     When preparing meals this the most important factor:
+                </div>
+                <div className='optionAlign'>
+                    <div className='optionContain'>
+                        <Select className='optionSelect3' onChange={props.handleFormF} options={options3} />
+                    </div>
+                </div>
+            </div>
+         </div>
+
+
         <div>
-            I don’t eat <input type='text' className='formInputB' onKeyDown={props.handleFormE} name='dietRestrictions'  onChange={props.getFormData } />.
+            When eating I typically avoid<input type='text' className='formInputB' onKeyDown={props.handleFormE} name='dietRestrictions'  onChange={props.getFormData } />.
         </div>
         <div className='exerpt2'>
             (gluten, meat, other - write in)
         </div>
+
+        <div>
+            And my kids typically avoid<input type='text' className='formInputB' onKeyDown={props.handleFormE} name='dietRestrictions'  onChange={props.getFormData } />.
+        </div>
+        <div className='exerpt2'>
+            (if no children - leave blank)
+        </div>
+
         <div style={props.showInputFormE ? {display: 'block'} : { display: 'none' }} className='formE'>
             <div className='optionSelect'>
                 <div>
@@ -70,8 +98,6 @@ const Signup = (props) => {
          </div>
      </div>
     <div style={props.showInputFormE ? {display: 'block'} : { display: 'none' }} className='formE'>
-            {/* What looks best to you? */}
-            {/* Images of diverse food selection w/ option to swipe right/left or select boxes in grid */}
             <button className='signUpButton' onClick={props.checkDietRestrictions}>Lets choose your food</button>
     </div>
                

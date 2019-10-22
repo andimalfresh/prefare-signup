@@ -42,7 +42,7 @@ const Buildmenu = () => {
                     </Row>
                     <Row className='menuRow'>
                         <Col className='menuType'>Gluten Free</Col>
-                        <Col className='menuType'>Low Calorie</Col> 
+                        <Col className='menuType'>Kid Friendly</Col> 
                     </Row>
                     <Row className='quantityRow'>
                         <Col>Number of People</Col>
