@@ -20,6 +20,7 @@
   }
   a:link {
     text-decoration: none;
+    color:  #ff8d6a;
   }
   .Signup {
       width: 100vw;
@@ -88,6 +89,24 @@
         font-size: 1em;
         font-weight: 500;
         width: 125px;
+    }
+    .formInputD {
+      -moz-appearance: none;
+      appearance: none;
+      display: inline-block;
+      margin: 0;
+      padding: 8px 8px;
+      padding-bottom: 0;
+      text-align: center;
+      letter-spacing: 1px;
+      color: #ff8d6a;
+      border: 0;
+      border-bottom: 2px dotted #b5b3b3;
+      outline: none;
+      background-color: transparent;
+      font-size: 1em;
+      font-weight: 500;
+      width: 100px;
     }
     .formB {
       display: block

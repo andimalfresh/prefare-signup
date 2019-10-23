@@ -29,7 +29,7 @@ const optionsNumberOfRecepies = [
 
 
 
-const Buildmenu = () => {
+const Buildmenu = (props) => {
     return (
         <div className="buildPlan">
              Build your plan
@@ -37,12 +37,12 @@ const Buildmenu = () => {
                 <Container>
                     1.Choose your Preference
                     <Row className='menuRow'>
-                        <Col className='menuType'>Meat and Veggies</Col>
-                        <Col className='menuType'>Veggie</Col>
+                        <Col className='menuType' value='0' onClick={props.menuItem}>Meat and Veggies</Col>
+                        <Col className='menuType' value='1'>Veggie</Col>
                     </Row>
                     <Row className='menuRow'>
-                        <Col className='menuType'>Gluten Free</Col>
-                        <Col className='menuType'>Kid Friendly</Col> 
+                        <Col className='menuType' value='2'>Gluten Free</Col>
+                        <Col className='menuType' value='3'>Kid Friendly</Col> 
                     </Row>
                     <Row className='quantityRow'>
                         <Col>Number of People</Col>
@@ -62,6 +62,9 @@ const Buildmenu = () => {
                     <Row> 
                         <Col>Shipping</Col>
                         <Col>Shipping Price</Col>
+                    </Row>
+                    <Row>
+                        <Col className='exerpt'> You can choose from a wide variety of meals full of fresh veggies and proteins.</Col>
                     </Row>
                 </Container>
             </Container>
