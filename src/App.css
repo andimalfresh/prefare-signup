@@ -264,7 +264,7 @@
         display:flex;
         justify-content: center;
       }
-      .menuType {
+      .menuType1, .menuType2, .menuType3,.menuType4  {
         padding: 15px;
         display:flex;
         justify-content: center;

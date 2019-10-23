@@ -1,27 +1,40 @@
 import React from 'react'
-import Select from 'react-select'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Col,Container,Row} from 'react-bootstrap'
 
-const optionsNumberOfPeople = [
-    {value: 27, label: '2'},
-    {value: 47, label: '4'},
-    {value: 65.75, label: '6'},
-    {value: 85.28, label: '8'},
-    {value: 105.00, label: '10'},
-    {value: 122.88, label: '12'},
-    {value: 143.35, label: '14'},
-    {value: 163.84, label: '16'}
-]
-const optionsNumberOfRecepies = [
-    {value: 1, label: '1'},
+// const optionsMenuItemsOrdered = [
+//     {value: 27, label: '2'},
+//     {value: 47, label: '4'},
+//     {value: 65.75, label: '6'},
+//     {value: 85.28, label: '8'},
+//     {value: 105.00, label: '10'},
+//     {value: 122.88, label: '12'},
+//     {value: 143.35, label: '14'},
+//     {value: 163.84, label: '16'}
+// ]
+const optionsNumberOfServings = [  
     {value: 2, label: '2'},
-    {value: 3, label: '3'},
     {value: 4, label: '4'},
-    {value: 5, label: '5'},
     {value: 6, label: '6'},
-    {value: 7, label: '7'}
+    {value: 8, label: '8'},   
 ]
+const optionsNumberOfMeals = [  
+    {value: 2, label: '2'},
+    {value: 4, label: '4'},
+    {value: 6, label: '6'},
+    {value: 8, label: '8'},   
+]
+var mapOutServingsSelect= optionsNumberOfServings.map((item,i) => {
+    return (
+        <option key={i} value={item.value}>{item.label}</option>
+    )
+})
+var mapOutMealsSelect= optionsNumberOfMeals.map((item,i) => {
+    return (
+        <option key={i} value={item.value}>{item.label}</option>
+    )
+})
+// const totalOrdered = 
 
 
 
@@ -37,20 +50,29 @@ const Buildmenu = (props) => {
                 <Container>
                     1.Choose your Preference
                     <Row className='menuRow'>
-                        <Col className='menuType' value='0' onClick={props.menuItem}>Meat and Veggies</Col>
-                        <Col className='menuType' value='1'>Veggie</Col>
+                        <Col style={props.menuMeatsHighlighted ? {backgroundColor: '#ff8d6a', color:'white'} : {}} className='menuType1' value='0' onClick={props.menuSelected}>Meat and Veggies</Col>
+                        <Col style={props.menuVeggieHighlighted ? {backgroundColor: '#ff8d6a', color:'white'} : {}}  className='menuType2' value='1' onClick={props.menuSelected}>Veggie</Col>
                     </Row>
                     <Row className='menuRow'>
-                        <Col className='menuType' value='2'>Gluten Free</Col>
-                        <Col className='menuType' value='3'>Kid Friendly</Col> 
+                        <Col style={props.menuGlutenHighlighted ? {backgroundColor: '#ff8d6a', color:'white'} : {}} className='menuType3' value='2' onClick={props.menuSelected}>Gluten Free</Col>
+                        <Col style={props.menuKidsHighlighted ? {backgroundColor: '#ff8d6a', color:'white'} : {}} className='menuType4' value='3' onClick={props.menuSelected}>Kid Friendly</Col> 
                     </Row>
                     <Row className='quantityRow'>
-                        <Col>Number of People</Col>
-                        <Col><Select className='optionSelect2' onChange={null} options={optionsNumberOfPeople} /></Col>
+                        <Col>Meals per Week</Col>
+                        <Col><select className='optionSelect2' onChange={props.getNumberOfMeals} >
+                                    <option name='Choose Option' disabled />
+                                        {mapOutMealsSelect}
+                            </select>
+                        </Col>
                     </Row>
                     <Row className='quantityRow'>
-                        <Col>Number of Recepies</Col>
-                        <Col><Select className='optionSelect2' onChange={null} options={optionsNumberOfRecepies} /></Col>
+                        <Col>Number of Servings</Col>
+                        <Col>
+                            <select className='optionSelect2' onChange={props.getNumberOfServings} >
+                                <option name='Choose Option' disabled />
+                                    {mapOutServingsSelect}
+                            </select>
+                        </Col>
                     </Row>
                 </Container>
                 <Container>

@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import Signup from './components/Signup'
-import Progressbar from './components/ProgressBar'
-// import Buildyourplan from './components/Buildyourplan'
-// import Shippinginfo from './components/Shippinginfo'
+// import Signup from './components/Signup'
+// import Progressbar from './components/ProgressBar'
+import Buildyourplan from './components/Buildyourplan'
+import Shippinginfo from './components/Shippinginfo'
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
@@ -38,7 +38,10 @@ class App extends Component {
       menuItems: [],
       retail_price: '',
       menuItemSelected:'',
-      menuItemHighlighted: false,
+      menuMeatsHighlighted: false,
+      menuVeggieHighlighted: false,
+      menuGlutenHighlighted: false,
+      menuKidsHighlighted: false,
       ordersCount:'',
       percentage: 0,
       mealPlan: [
@@ -91,7 +94,7 @@ class App extends Component {
       })
     }
   }
-   
+  // Start Sign Up Functions
   getDeliveryDay = (event) => {   
     this.handleFormG() 
       this.setState ({
@@ -152,16 +155,51 @@ class App extends Component {
         showInputFormH: true
     })
   }
-  menuSelected = (event) => {
-    this.setState({
-      menuItemSelected : event.target.value
+
+  // End Sign Up Functions
+  // Build Functions
+  getNumberOfMeals = (event) => {
+    this.setState ({
+      meals_per_week : event.target.value
     })
   }
+  getNumberOfServings = (event) => {
+    this.setState ({
+      number_of_servings : event.target.value
+    })
+  }
+
+  menuSelected = (event, value) => {
+    // console.log('Selected')
+    // if (event.target.value === 0) {
+    //   this.setState({ 
+    //     menuMeatsHighlighted: true
+    //   })
+    //  } else if (event.target.value === 1) {
+    //     this.setState({ 
+    //       menuVeggieHighlighted: true
+    //     })
+    //   } else if (event.target.value === 2) {
+    //     this.setState({ 
+    //       menuGlutenHighlighted: true
+    //     })
+    //   } else if (event.target.value === 3) {
+    //     this.setState({ 
+    //       menuKidsHighlighted: true
+    //     })
+    // }
+    this.setState({
+      menuItemSelected : event.target.value,
+    })
+  }
+
+
+
   render() {
   return (
     <div className='App'>
-      <Progressbar  />
-      <Signup
+      {/* <Progressbar  /> */}
+      {/* <Signup
         name={this.state.name}
         getQuestionAnswer={this.getQuestionAnswer} 
         handleFormB={this.handleFormB} 
@@ -185,12 +223,19 @@ class App extends Component {
         meals_per_week={this.state.meals_per_week}
         number_of_servings={this.state.number_of_servings}
         x={this.state.x}
-      />
-      {/* <Buildyourplan */}
-        {/* menuItemSelected={this.state.menuItemSelected}
-        menuItem={this.menuItem}
-        menuItemHighlighted={this.state.menuItemHighlighted}
       /> */}
+      <Buildyourplan
+         menuItemSelected={this.state.menuItemSelected}
+         menuSelected={this.menuSelected}
+         menuMeatsHighlighted={this.state.menuMeatsHighlighted}
+         menuVeggieHighlighted={this.state.menuVeggieHighlighted}
+         menuGlutenHighlighted={this.state.menuGlutenHighlighted}
+         menuKidsHighlighted={this.state.menuKidsHighlighted}
+         meals_per_week={this.state.meals_per_week}
+         number_of_servings={this.state.number_of_servings}
+         getNumberOfMeals={this.getNumberOfMeals}
+         getNumberOfServings={this.getNumberOfServings}
+       />
       {/* <Shippinginfo /> */}
     </div>
     )
