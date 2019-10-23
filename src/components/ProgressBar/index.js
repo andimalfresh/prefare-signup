@@ -1,11 +1,11 @@
 import React from 'react'
-import Filler from '../Filler'
+import {ProgressBar} from 'react-bootstrap'
 
 
 const Progressbar = (props) => {
     return (
-        <div>
-            <Filler precentage={props.percentage} />
+        <div className='progressBar'>
+            <ProgressBar variant='danger' now={30} />
         </div>
     ) 
 }

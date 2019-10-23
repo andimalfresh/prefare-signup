@@ -70,17 +70,17 @@ class App extends Component {
   checkDietRestrictions = () => {
     this.handleFormH()
     console.log('Checking Diet')
-    if (this.state.dietRestrictions.toLowerCase === 'meat' ) {
+    if (this.state.dietRestrictions === 'meat' ) {
       this.setState ({
         vegetarian: true,
         x:1
       })
-    } else if (this.state.dietRestrictions.toLowerCase === 'gluten') {
+    } else if (this.state.dietRestrictions === 'gluten') {
       this.setState ({
         gluten_free: true,
         x:2
       })
-    } else if (this.state.dietRestrictions.toLowerCase === 'ciliac') {
+    } else if (this.state.dietRestrictions === 'ciliac') {
       this.setState ({
         gluten_free: true,
         x:2
@@ -107,7 +107,7 @@ class App extends Component {
   getFormData = (event) => {
     const { value, name } = event.target
     this.setState({
-      [name]: value
+      [name]: value.toLowerCase()
     })
   }
   handleFormB = () => {

@@ -139,11 +139,13 @@ const Signup = (props) => {
                         <li className="planTagline">{props.mealPlan[props.x].tagline}</li>
                         <li>{props.meals_per_week} meals for {props.number_of_servings} people.</li>
                         <li>About ${props.number_of_servings * props.meals_per_week * 12}{props.mealPlan[props.x].priceString}</li>
+                        <li><span className='exerpt'>Select your scratch prepared meals after check-out!</span></li>
                         <li><button className='orderButton'>Continue to check-out</button></li>
                         <li><a href='/Build' className='exerpt' >This plan doesn’t do it for me</a></li>
+        
                     </ul>
                 </div>
-                    <span className='exerpt'>Select your scratch prepared meals after check-out!</span>
+                    
             </div>
     </div>     
         </div> 
