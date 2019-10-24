@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
-import Signup from './components/Signup'
-import Progressbar from './components/ProgressBar'
-// import Buildyourplan from './components/Buildyourplan'
+// import Signup from './components/Signup'
+// import Progressbar from './components/ProgressBar'
+import Buildyourplan from './components/Buildyourplan'
 // import Shippinginfo from './components/Shippinginfo'
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
-
 
 class App extends Component {
   constructor() {
@@ -19,13 +18,13 @@ class App extends Component {
       zip:'',
       email:'',
       signup_date:'',
-      meals_per_week:'',
+      meals_per_week:'0',
       delivery_day:'',
       account_on_hold: null,
       dietRestrictions: '',
       gluten_free: false,
       vegetarian: false,
-      number_of_servings:'',
+      number_of_servings:'0',
       phone: '',
       meal_credits: '',
       showInputFormB: false,
@@ -38,8 +37,10 @@ class App extends Component {
       menuItems: [],
       retail_price: '',
       menuItemSelected:'',
-      menuItemHighlighted: false,
-      ordersCount:'',
+      menuMeatsHighlighted: false,
+      menuVeggieHighlighted: false,
+      menuGlutenHighlighted: false,
+      menuKidsHighlighted: false,
       percentage: 0,
       mealPlan: [
                   {
@@ -64,8 +65,13 @@ class App extends Component {
                   }
                 ],
       x: 0,
-      answer: null
+      answer: null,
+      totalCalculated: 0
     }
+  }
+
+  componentDidMount() {
+    this.calculateOrderTotal()
   }
   checkDietRestrictions = () => {
     this.handleFormH()
@@ -91,7 +97,7 @@ class App extends Component {
       })
     }
   }
-   
+  // Start Sign Up Functions
   getDeliveryDay = (event) => {   
     this.handleFormG() 
       this.setState ({
@@ -152,16 +158,100 @@ class App extends Component {
         showInputFormH: true
     })
   }
-  menuSelected = (event) => {
-    this.setState({
-      menuItemSelected : event.target.value
+
+  // End Sign Up Functions
+  // Build Functions
+  getNumberOfMeals = (event) => {
+    this.setState ({
+      meals_per_week : event.target.value
     })
   }
+  getNumberOfServings = (event) => {
+    this.setState ({
+      number_of_servings : '0'
+    })
+    this.setState ({
+      number_of_servings : event.target.value
+    })
+  }
+
+  meatSelected = () => {
+    this.setState({ 
+      menuMeatsHighlighted: true,
+      menuItemSelected: "Meats"
+    })
+  }
+  veggieSelected = () => {
+    this.setState({ 
+      menuVeggieHighlighted: true,
+      menuItemSelected: "Vegetarian",
+      vegetarian: true
+    })
+  }
+  glutenSelected = () => {
+    this.setState({ 
+      menuGlutenHighlighted: true,
+      menuItemSelected: "Gluten Free",
+      gluten_free: true
+    })
+  }
+  kidsSelected = () => {
+    this.setState({ 
+      menuKidsHighlighted: true,
+      menuItemSelected: "Kid Friendly"
+    })
+  }
+  resetForm = () => {
+    this.calculateOrderTotal()
+    this.setState({
+      totalCalculated: 0,
+      menuMeatsHighlighted: false,
+      menuVeggieHighlighted: false,
+      menuGlutenHighlighted: false,
+      menuKidsHighlighted: false,
+    })
+  }
+  calculateOrderTotal = () => {
+    const a = Number.parseInt(this.state.meals_per_week)
+    const b = Number.parseInt(this.state.number_of_servings)
+    const total = ((a*11)*b) + 6 
+    this.setState({
+      totalCalculated: total
+    })
+    this.forceUpdate();
+  }
+  // menuSelected = (event, value) => {
+  //   console.log('Selected')
+  //   if (event.target.value === '0') {
+  //     this.setState({ 
+  //       menuMeatsHighlighted: true
+  //     })
+  //    } else if (event.target.value === '1') {
+  //       this.setState({ 
+  //         menuVeggieHighlighted: true
+  //       })
+  //     } else if (event.target.value === '2') {
+  //       this.setState({ 
+  //         menuGlutenHighlighted: true
+  //       })
+  //     } else if (event.target.value === '3') {
+  //       this.setState({ 
+  //         menuKidsHighlighted: true
+  //       })
+  //   }
+  //   this.setState({
+  //     menuItemSelected : event.target.value,
+  //   })
+  // }
+
+
+
+
   render() {
   return (
     <div className='App'>
-      <Progressbar  />
-      <Signup
+      {/* <Progressbar  /> */}
+      {/* <Signup
         name={this.state.name}
         getQuestionAnswer={this.getQuestionAnswer} 
         handleFormB={this.handleFormB} 
@@ -185,12 +275,26 @@ class App extends Component {
         meals_per_week={this.state.meals_per_week}
         number_of_servings={this.state.number_of_servings}
         x={this.state.x}
-      />
-      {/* <Buildyourplan */}
-        {/* menuItemSelected={this.state.menuItemSelected}
-        menuItem={this.menuItem}
-        menuItemHighlighted={this.state.menuItemHighlighted}
       /> */}
+      <Buildyourplan
+         meatSelected={this.meatSelected}
+         veggieSelected={this.veggieSelected}
+         glutenSelected={this.glutenSelected}
+         kidsSelected={this.kidsSelected}
+         menuItemSelected={this.state.menuItemSelected}
+         menuSelected={this.menuSelected}
+         menuMeatsHighlighted={this.state.menuMeatsHighlighted}
+         menuVeggieHighlighted={this.state.menuVeggieHighlighted}
+         menuGlutenHighlighted={this.state.menuGlutenHighlighted}
+         menuKidsHighlighted={this.state.menuKidsHighlighted}
+         meals_per_week={this.state.meals_per_week}
+         number_of_servings={this.state.number_of_servings}
+         getNumberOfMeals={this.getNumberOfMeals}
+         getNumberOfServings={this.getNumberOfServings}
+         resetForm={this.resetForm}
+         calculateOrderTotal={this.calculateOrderTotal}
+         totalCalculated={this.state.totalCalculated} 
+       />
       {/* <Shippinginfo /> */}
     </div>
     )

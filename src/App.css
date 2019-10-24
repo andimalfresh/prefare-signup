@@ -139,7 +139,7 @@
       border-color: #cff0e8;
       background-color: #cff0e8;
       color: White;
-    }
+    } 
     .title {
       font-family: Arial, Helvetica, sans-serif;
       font-weight: 900;
@@ -226,6 +226,8 @@
         padding: 0px;
         margin: 0px;
       }
+
+    /* Build your own */
       .buildPlan {
         width: 100vw;
         display: flex;
@@ -233,7 +235,7 @@
         align-items: center;
         flex-direction: column;
         font-family: 'HarmoniaSans', Arial, Helvetica, sans-serif;
-        font-size:  16px;
+        font-size:  24px;
         background-color:white;
         opacity: .90;
       }
@@ -245,6 +247,9 @@
         flex-direction: column;
         padding: 15px;
       }
+      .Container {
+        padding: 20px;
+      }
       .planTitle {
         padding: 10px;
       }
@@ -254,17 +259,23 @@
         align-items: center;
         flex-direction: row;
       }
-      .buildCard {
+      .buildCard, .buildCardMobile {
         display: flex;
         flex-direction: row;
         background-color: ghostwhite;
         padding : 25px;
+        width: 100vw;
+      }
+      .buildCard {
+        display: none;
       }
       .menuRow {
         display:flex;
         justify-content: center;
+        padding: 10px;
+        font-size: 16px;
       }
-      .menuType {
+      .menuType  {
         padding: 15px;
         display:flex;
         justify-content: center;
@@ -272,9 +283,38 @@
         border-radius: 15px;
       }
       .menuType:hover {
+        border-color: #cff0e8;
+        background-color: #cff0e8;
+        color: White;
+      } 
+      .menuType:hover {
         background-color: #cff0e8;
         color: White;
       }
       .quantityRow {
         padding: 15px
       }
+      .resetButton, .totalButton, .checkoutButton {
+        background-color: #ff9e16;
+        color:white;
+        border-radius: 500px;
+        padding: 8px 16px;
+        font-weight: 300;
+        font-size: 14px;
+        border: 2px solid #ff9e16;
+        width: 175px;
+        margin: 10px;
+      }
+      .resetButton:hover, .totalButton:hover, .checkoutButton:hover {
+        border-color: #cff0e8;
+        background-color: #cff0e8;
+        color: White;
+      } 
+      @media only screen and (min-width: 768px) {
+        .buildCardMobile {
+          display: none;  
+        }
+        .buildCard {
+          display: inherit;
+        }
+    }

@@ -83,6 +83,7 @@ const Signup = (props) => {
                 </div>
                 <div className='optionAlign'>
                     <select className='optionSelect' onChange={props.getQuestionAnswer} >
+                                <option name='Choose Option' disabled />
                                 {optionsPrepare}
                     </select>
                 </div>
@@ -113,6 +114,7 @@ const Signup = (props) => {
                 <div className='optionAlign'>
                     <div className='optionContain'>
                         <select className='optionSelect' onChange={props.getDeliveryDay} >
+                            <option name='Choose Option' disabled />
                             {options}
                         </select>
                     </div>
