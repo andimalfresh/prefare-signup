@@ -12,17 +12,21 @@ import {Col,Container,Row} from 'react-bootstrap'
 //     {value: 143.35, label: '14'},
 //     {value: 163.84, label: '16'}
 // ]
-const optionsNumberOfServings = [  
+const optionsNumberOfServings = [ 
+    {value: 0,  label: '#'}, 
     {value: 2, label: '2'},
     {value: 4, label: '4'},
     {value: 6, label: '6'},
     {value: 8, label: '8'},   
 ]
 const optionsNumberOfMeals = [  
+    {value: 0,  label: '#'},
     {value: 2, label: '2'},
+    {value: 3, label: '3'},
     {value: 4, label: '4'},
+    {value: 5, label: '5'},
     {value: 6, label: '6'},
-    {value: 8, label: '8'},   
+    {value: 7, label: '7'},      
 ]
 var mapOutServingsSelect= optionsNumberOfServings.map((item,i) => {
     return (
@@ -34,15 +38,9 @@ var mapOutMealsSelect= optionsNumberOfMeals.map((item,i) => {
         <option key={i} value={item.value}>{item.label}</option>
     )
 })
-// const totalOrdered = 
-
-
-
-
-
-
 
 const Buildmenu = (props) => {
+    const viewerTotal = props.totalCalculated
     return (
         <div className="buildPlan">
              Build your plan
@@ -50,17 +48,16 @@ const Buildmenu = (props) => {
                 <Container>
                     1.Choose your Preference
                     <Row className='menuRow'>
-                        <Col style={props.menuMeatsHighlighted ? {backgroundColor: '#ff8d6a', color:'white'} : {}} className='menuType1' value='0' onClick={props.menuSelected}>Meat and Veggies</Col>
-                        <Col style={props.menuVeggieHighlighted ? {backgroundColor: '#ff8d6a', color:'white'} : {}}  className='menuType2' value='1' onClick={props.menuSelected}>Veggie</Col>
+                        <Col style={props.menuMeatsHighlighted ? {backgroundColor: '#ff9e16', color:'white'} : {}} className='menuType'  onClick={props.meatSelected}>Meat and Veggies</Col>
+                        <Col style={props.menuVeggieHighlighted ? {backgroundColor: '#ff9e16', color:'white'} : {}}  className='menuType' onClick={props.veggieSelected}>Veggie</Col>
                     </Row>
                     <Row className='menuRow'>
-                        <Col style={props.menuGlutenHighlighted ? {backgroundColor: '#ff8d6a', color:'white'} : {}} className='menuType3' value='2' onClick={props.menuSelected}>Gluten Free</Col>
-                        <Col style={props.menuKidsHighlighted ? {backgroundColor: '#ff8d6a', color:'white'} : {}} className='menuType4' value='3' onClick={props.menuSelected}>Kid Friendly</Col> 
+                        <Col style={props.menuGlutenHighlighted ? {backgroundColor: '#ff9e16', color:'white'} : {}} className='menuType' onClick={props.glutenSelected}>Gluten Free</Col>
+                        <Col style={props.menuKidsHighlighted ? {backgroundColor: '#ff9e16', color:'white'} : {}} className='menuType'  onClick={props.kidsSelected}>Kid Friendly</Col> 
                     </Row>
                     <Row className='quantityRow'>
                         <Col>Meals per Week</Col>
-                        <Col><select className='optionSelect2' onChange={props.getNumberOfMeals} >
-                                    <option name='Choose Option' disabled />
+                        <Col><select className='optionSelect2' onChange={props.getNumberOfMeals}>        
                                         {mapOutMealsSelect}
                             </select>
                         </Col>
@@ -68,8 +65,7 @@ const Buildmenu = (props) => {
                     <Row className='quantityRow'>
                         <Col>Number of Servings</Col>
                         <Col>
-                            <select className='optionSelect2' onChange={props.getNumberOfServings} >
-                                <option name='Choose Option' disabled />
+                            <select className='optionSelect2' onChange={props.getNumberOfServings} >      
                                     {mapOutServingsSelect}
                             </select>
                         </Col>
@@ -77,19 +73,86 @@ const Buildmenu = (props) => {
                 </Container>
                 <Container>
                     2. Review your Order 
-                    <Row> 
+                    <Row className='menuRow'> 
                         <Col>Price per Serving</Col>
-                        <Col>Serving Price</Col>
+                        <Col>$11/per serving</Col>
                     </Row>
-                    <Row> 
+                    <Row className='menuRow'> 
                         <Col>Shipping</Col>
-                        <Col>Shipping Price</Col>
+                        <Col>$6/per Shipment</Col>
+                    </Row>
+                    <Row className='menuRow'>
+                        <Col><button className='resetButton' onClick={props.resetForm}>Reset</button></Col>
+                        <Col><button className='totalButton' onClick={props.calculateOrderTotal}>Get Total</button></Col>
                     </Row>
                     <Row>
-                        <Col className='exerpt'> You can choose from a wide variety of meals full of fresh veggies and proteins.</Col>
+                        <div className='exerpt'> You'll can choose from a wide variety of meals full of fresh veggies and proteins after check out.</div>
                     </Row>
+                    <Row className='menuRow'> 
+                        <Col>Total</Col>
+                        <Col>${viewerTotal}</Col>
+                    </Row>
+                    <Row className='menuRow'><button className='checkoutButton'>Check out</button></Row>
                 </Container>
             </Container>
+
+            {/* mobile version of build card here  */}
+
+            <Container className='buildCardMobile'>
+                <Col>
+                    1.Choose your Preference
+                    <Row className='menuRow'>
+                        <Col style={props.menuMeatsHighlighted ? {backgroundColor: '#ff9e16', color:'white'} : {}} className='menuType'  onClick={props.meatSelected}>Meat and Veggies</Col>
+                        <Col style={props.menuVeggieHighlighted ? {backgroundColor: '#ff9e16', color:'white'} : {}}  className='menuType' onClick={props.veggieSelected}>Veggie</Col>
+                    </Row>
+                    <Row className='menuRow'>
+                        <Col style={props.menuGlutenHighlighted ? {backgroundColor: '#ff9e16', color:'white'} : {}} className='menuType' onClick={props.glutenSelected}>Gluten Free</Col>
+                        <Col style={props.menuKidsHighlighted ? {backgroundColor: '#ff9e16', color:'white'} : {}} className='menuType'  onClick={props.kidsSelected}>Kid Friendly</Col> 
+                    </Row>
+                    <Row className='quantityRow'>
+                        <Col>Meals per Week</Col>
+                        <Col><select className='optionSelect2' onChange={props.getNumberOfMeals}>        
+                                        {mapOutMealsSelect}
+                            </select>
+                        </Col>
+                    </Row>
+                    <Row className='quantityRow'>
+                        <Col>Number of Servings</Col>
+                        <Col>
+                            <select className='optionSelect2' onChange={props.getNumberOfServings} >      
+                                    {mapOutServingsSelect}
+                            </select>
+                        </Col>
+                    </Row>
+
+ 
+                    2. Review your Order 
+                    <Row className='menuRow'> 
+                        <Col>Price per Serving</Col>
+                        <Col>$11/per serving</Col>
+                    </Row>
+                    <Row className='menuRow'> 
+                        <Col>Shipping</Col>
+                        <Col>$6/per Shipment</Col>
+                    </Row>
+                    <Row className='menuRow'>
+                        <button className='resetButton' onClick={props.resetForm}>Reset</button>
+                        <button className='totalButton' onClick={props.calculateOrderTotal}>Get Total</button>
+                    </Row>
+                    <Row>
+                        <div className='exerpt'> You'll can choose from a wide variety of meals full of fresh veggies and proteins after check out.</div>
+                    </Row>
+                    <Row className='menuRow'> 
+                        <Col>Total</Col>
+                        <Col>${viewerTotal}</Col>
+                    </Row>
+                    <Row className='menuRow'><button className='checkoutButton'>Check out</button></Row>
+                </Col>
+            </Container>
+
+
+
+
 
         </div>
     )
