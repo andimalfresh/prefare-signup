@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-// import Signup from './components/Signup'
+import Signup from './components/Signup'
 // import Progressbar from './components/ProgressBar'
 import Buildyourplan from './components/Buildyourplan'
 // import Shippinginfo from './components/Shippinginfo'
@@ -251,7 +251,7 @@ class App extends Component {
   return (
     <div className='App'>
       {/* <Progressbar  /> */}
-      {/* <Signup
+      <Signup
         name={this.state.name}
         getQuestionAnswer={this.getQuestionAnswer} 
         handleFormB={this.handleFormB} 
@@ -275,7 +275,7 @@ class App extends Component {
         meals_per_week={this.state.meals_per_week}
         number_of_servings={this.state.number_of_servings}
         x={this.state.x}
-      /> */}
+      />
       <Buildyourplan
          meatSelected={this.meatSelected}
          veggieSelected={this.veggieSelected}

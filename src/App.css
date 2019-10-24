@@ -226,8 +226,13 @@
         padding: 0px;
         margin: 0px;
       }
+     /* Padding for both features to be on same page  */
+      .Signup {
+        padding-bottom: 300px; 
+      }
 
-    /* Build your own */
+
+    /* Build your own Menu */
       .buildPlan {
         width: 100vw;
         display: flex;
