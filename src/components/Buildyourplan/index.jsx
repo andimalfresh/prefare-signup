@@ -42,8 +42,10 @@ var mapOutMealsSelect= optionsNumberOfMeals.map((item,i) => {
 const Buildmenu = (props) => {
     const viewerTotal = props.totalCalculated
     return (
-        <div className="buildPlan">
-             Build your plan
+        <div className="buildPlan" style={
+            props.showBuildMenu ? { display: "flex" } : { display: "none" }
+          }>
+            <div className='exerptTitle'>Build your plan</div>
             <Container className='buildCard'>
                 <Container>
                     1.Choose your Preference
@@ -74,6 +76,10 @@ const Buildmenu = (props) => {
                 <Container>
                     2. Review your Order 
                     <Row className='menuRow'> 
+                        <Col>Menu Selected</Col>
+                        <Col>{props.menuItemSelected}</Col>
+                    </Row>
+                    <Row className='menuRow'> 
                         <Col>Price per Serving</Col>
                         <Col>$11/per serving</Col>
                     </Row>
@@ -86,7 +92,7 @@ const Buildmenu = (props) => {
                         <Col><button className='totalButton' onClick={props.calculateOrderTotal}>Get Total</button></Col>
                     </Row>
                     <Row>
-                        <div className='exerpt'> You'll can choose from a wide variety of meals full of fresh veggies and proteins after check out.</div>
+                        <div className='exerpt'>You can choose from a wide variety of meals, full of fresh veggies and proteins after check out. Your card will not be charged until you have selected your menu for the week.</div>
                     </Row>
                     <Row className='menuRow'> 
                         <Col>Total</Col>
