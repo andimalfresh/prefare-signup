@@ -12,6 +12,13 @@ const options2 = [
   { value: 0, label: "Sunday" },
   { value: 1, label: "Monday" }
 ];
+
+const optionsDiet = [
+  { value: null, label: "Select" },
+  { value: "Meat", label: "Meat" },
+  { value: "Gluten", label: "Gluten" },
+  { value: "other", label: "Other" }
+];
 // const optionsServings = [
 //     {value: 27, label: '2'},
 //     {value: 47, label: '4'},
@@ -31,6 +38,14 @@ var options = options2.map((item, i) => {
   );
 });
 
+var optionsForDietSelect = optionsDiet.map((item, i) => {
+  return (
+    <option key={i} value={item.value}>
+      {item.label}
+    </option>
+  );
+});
+
 var optionsPrepare = options3.map((item, i) => {
   return (
     <option key={i} value={item.value}>
@@ -38,11 +53,6 @@ var optionsPrepare = options3.map((item, i) => {
     </option>
   );
 });
-// var optionsNumbers= optionsServings.map(item => {
-//     return (
-//         <option value= {item.value}>{item.label}</option>
-//     )
-// })
 
 const Signup = props => {
   return (
@@ -50,7 +60,7 @@ const Signup = props => {
       {/* <span className='exerpt'>status bar </span> */}
       <div className="Me">
         <div className="exerptTitle">Tell us about yourself</div>
-        <div className='formA'>
+        <div className="formA">
           I’d love fresh and fast, prepped meals
           <input
             type="text"
@@ -61,7 +71,7 @@ const Signup = props => {
           />{" "}
           day(s) a week.
         </div>
-        <div className='formA'>
+        <div className="formA">
           Myself included, there are
           <input
             type="text"
@@ -143,38 +153,73 @@ const Signup = props => {
               </div>
             </div>
           </div>
-
           <div
             style={
               props.showInputFormE ? { display: "block" } : { display: "none" }
             }
             className="formE"
           >
-            <div>
-              When eating, I typically avoid
-              <input
-                type="text"
-                className="formInputD"
-                onKeyDown={props.handleFormF}
+            <div className='mealSelect'>
+              When eating, I typically avoid &nbsp;
+              <select
+                className="optionSelect"
                 name="dietRestrictions"
-                onChange={props.getFormData}
-              />
+                onChange={props.getFormDataAndShow}
+              >
+                {optionsForDietSelect}
+              </select>
               .
+              <div>
+              <div
+                  style={
+                    props.showExtraInputForm
+                      ? { display: "inline" }
+                      : { display: "none" }
+                  }
+                >
+                  <span className="exerpt2">(other - please type input)</span>
+                  &nbsp;
+                  <input
+                    type="text"
+                    className="formInputD"
+                    onKeyDown={props.handleFormF}
+                    name="dietRestrictions"
+                    onChange={props.getFormData}
+                  />
+                </div>
+              </div>
             </div>
-            <div className="exerpt2">(gluten, meat, other - write in)</div>
 
             <div>
-              And my kids typically avoid
-              <input
-                type="text"
-                className="formInputD"
-                onKeyDown={props.handleFormF}
-                name="dietRestrictions"
-                onChange={props.getFormData}
-              />
+              And my kids typically avoid &nbsp;
+              <select
+                className="optionSelect"
+                name="dietRestrictions2"
+                onChange={props.getFormDataAndShow}
+              >
+                {optionsForDietSelect}
+              </select>
               .
+              <div>
+                <div
+                  style={
+                    props.showExtraInputForm
+                      ? { display: "inline" }
+                      : { display: "none" }
+                  }
+                >
+                  <span className="exerpt2">(other - please type input)</span>
+                  &nbsp;
+                  <input
+                    type="text"
+                    className="formInputD"
+                    onKeyDown={props.handleFormF}
+                    name="dietRestrictions2"
+                    onChange={props.getFormData}
+                  />
+                </div>
+              </div>
             </div>
-            <div className="exerpt2">(if no children - leave blank)</div>
           </div>
 
           <div
@@ -227,44 +272,6 @@ const Signup = props => {
           >
             <path d="M100 100 H0 V100 H0 V50 C 33.3333 100, 66.6666 0, 100 50"></path>
           </svg>
-
-          {/* <div className="Plan">
-            <div className="planTitle">
-              {props.name}, we’ve selected the following plan - perfect for you
-              / your family.
-            </div>
-            <div className="planCard">
-              <ul>
-                <li>
-                  <h2>{props.mealPlan[props.x].title}</h2>
-                </li>
-                <li className="planTagline">
-                  {props.mealPlan[props.x].tagline}
-                </li>
-                <li>
-                  {props.meals_per_week} meals for {props.number_of_servings}{" "}
-                  people.
-                </li>
-                <li>
-                  About ${props.number_of_servings * props.meals_per_week * 12}
-                  {props.mealPlan[props.x].priceString}
-                </li>
-                <li>
-                  <span className="exerpt">
-                    Select your scratch prepared meals after check-out!
-                  </span>
-                </li>
-                <li>
-                  <button className="orderButton">Continue to check-out</button>
-                </li>
-                <li>
-                  <a href="/Build" className="exerpt" onClick={props.changeOver}>
-                    This plan doesn’t do it for me
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div> */}
         </div>
       </div>
     </div>

@@ -1,10 +1,4 @@
 
-@font-face {
-    font-family: 'HarmoniaSans';
-    src: url('./fonts/HarmoniaSans.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-  }
   @font-face {
     font-family: 'SpectralRegular';
     src: url('./fonts/SpectralRegular.ttf') format('truetype');
@@ -255,6 +249,9 @@ select:-webkit-autofill:focus {
       }
       .formA, .formB, .formC ,.formD ,.formE ,.formF {
           padding: 25px;
+      }
+      .mealSelect {
+        padding-bottom: 25px;
       }
       .optionContain {
         width: 150px;

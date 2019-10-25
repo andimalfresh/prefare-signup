@@ -42,8 +42,8 @@ var mapOutMealsSelect= optionsNumberOfMeals.map((item,i) => {
 const Buildmenu = (props) => {
     const viewerTotal = props.totalCalculated
     return (
-        <div className="buildPlan" style={
-            props.showBuildMenu ? { display: "flex" } : { display: "none" }
+        <div className='buildPlan' style={
+            props.showBuildMenu ? { display: 'flex' } : { display: 'none' }
           }>
             <div className='exerptTitle'>Build your plan</div>
             <Container className='buildCard'>
@@ -96,7 +96,7 @@ const Buildmenu = (props) => {
                     </Row>
                     <Row className='menuRow'> 
                         <Col>Total</Col>
-                        <Col>${viewerTotal}</Col>
+                        <Col>${props.totalCalculated}</Col>
                     </Row>
                     <Row className='menuRow'><button className='checkoutButton'>Check out</button></Row>
                 </Container>
@@ -146,20 +146,16 @@ const Buildmenu = (props) => {
                         <button className='totalButton' onClick={props.calculateOrderTotal}>Get Total</button>
                     </Row>
                     <Row>
-                        <div className='exerpt'> You'll can choose from a wide variety of meals full of fresh veggies and proteins after check out.</div>
+                        <div className='exerpt'>You can choose from a wide variety of freshly prepared meals, after you 'create an account'  You'll only get charged if and when you decide to place an order.  The best part?  You have the flexibility to change any preferences at any point.</div>
                     </Row>
                     <Row className='menuRow'> 
                         <Col>Total</Col>
                         <Col>${viewerTotal}</Col>
                     </Row>
-                    <Row className='menuRow'><button className='checkoutButton'>Check out</button></Row>
+                    <Row className='menuRow'><button className='checkoutButton'>Create Account</button></Row>
+                    <Row className='expert'>your preferences will be saved in your account</Row>
                 </Col>
             </Container>
-
-
-
-
-
         </div>
     )
 }
