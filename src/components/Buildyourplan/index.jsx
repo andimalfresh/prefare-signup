@@ -45,7 +45,7 @@ const Buildmenu = (props) => {
         <div className='buildPlan' style={
             props.showBuildMenu ? { display: 'flex' } : { display: 'none' }
           }>
-            <div className='exerptTitle'>Build your plan</div>
+            <div className='exerptTitle' style={{color:'white'}}>Build your plan</div>
             <Container className='buildCard'>
                 <Container>
                     1.Choose your Preference
@@ -72,6 +72,7 @@ const Buildmenu = (props) => {
                             </select>
                         </Col>
                     </Row>
+                    <Row className='menuRow'><button className='resetButton' onClick={props.resetForm}>Reset</button></Row>
                 </Container>
                 <Container>
                     2. Review your Order 
@@ -88,17 +89,17 @@ const Buildmenu = (props) => {
                         <Col>$6/per Shipment</Col>
                     </Row>
                     <Row className='menuRow'>
-                        <Col><button className='resetButton' onClick={props.resetForm}>Reset</button></Col>
-                        <Col><button className='totalButton' onClick={props.calculateOrderTotal}>Get Total</button></Col>
+                        <button className='totalButton' onClick={props.calculateOrderTotal}>Get Total</button>
                     </Row>
                     <Row>
-                        <div className='exerpt'>You can choose from a wide variety of meals, full of fresh veggies and proteins after check out. Your card will not be charged until you have selected your menu for the week.</div>
+                        <div className='exerpt'>You can choose from a wide variety of freshly prepared meals, after you 'create an account'  You'll only get charged if and when you decide to place an order.  The best part?  You have the flexibility to change any preferences at any point.</div>
                     </Row>
                     <Row className='menuRow'> 
                         <Col>Total</Col>
                         <Col>${props.totalCalculated}</Col>
                     </Row>
-                    <Row className='menuRow'><button className='checkoutButton'>Check out</button></Row>
+                    <Row className='menuRow'><button className='checkoutButton'>Create Account</button></Row>
+                    <Row className='menuRow'><span className='exerpt'>Your preferences will be saved in your account</span></Row>
                 </Container>
             </Container>
 
@@ -134,6 +135,10 @@ const Buildmenu = (props) => {
  
                     2. Review your Order 
                     <Row className='menuRow'> 
+                        <Col>Menu Selected</Col>
+                        <Col>{props.menuItemSelected}</Col>
+                    </Row>
+                    <Row className='menuRow'> 
                         <Col>Price per Serving</Col>
                         <Col>$11/per serving</Col>
                     </Row>
@@ -146,14 +151,14 @@ const Buildmenu = (props) => {
                         <button className='totalButton' onClick={props.calculateOrderTotal}>Get Total</button>
                     </Row>
                     <Row>
-                        <div className='exerpt'>You can choose from a wide variety of freshly prepared meals, after you 'create an account'  You'll only get charged if and when you decide to place an order.  The best part?  You have the flexibility to change any preferences at any point.</div>
+                        <span className='exerpt'>You can choose from a wide variety of freshly prepared meals, after you 'create an account'  You'll only get charged if and when you decide to place an order.  The best part?  You have the flexibility to change any preferences at any point.</span>
                     </Row>
                     <Row className='menuRow'> 
                         <Col>Total</Col>
                         <Col>${viewerTotal}</Col>
                     </Row>
                     <Row className='menuRow'><button className='checkoutButton'>Create Account</button></Row>
-                    <Row className='expert'>your preferences will be saved in your account</Row>
+                    <Row className='menuRow'><span className='exerpt'>Your preferences will be saved in your account</span></Row>
                 </Col>
             </Container>
         </div>

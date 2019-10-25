@@ -30,7 +30,7 @@ const Plan = props => {
               </span>
             </li>
             <li>
-              <button className="orderButton">Continue to check-out</button>
+              <button className="orderButton">Create Account</button>
             </li>
             <li>
               <a href='#Here' className="changeOverButton" onClick={props.changeOver}>

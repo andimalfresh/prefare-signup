@@ -71,7 +71,7 @@ select:-webkit-autofill:focus {
       }
       .exerptTitle {
         font-family: 'SpectralRegular','Times New Roman', Times, serif; 
-        font-size: 18px;
+        font-size: 16px;
         padding: 10px;
         font-weight: 500;
       }
@@ -280,7 +280,6 @@ select:-webkit-autofill:focus {
         font-size:  24px;
         background-color:#cac4ba;
         opacity: .90;
-        padding-top: 50px;
       }
       .planCard {
         font-size: 16px;
@@ -307,7 +306,7 @@ select:-webkit-autofill:focus {
         flex-direction: row;
         background-color: white;
         padding : 25px;
-        width: 100vw;
+        width: 90vw;
       }
       .buildCard {
         display: none;
@@ -348,6 +347,10 @@ select:-webkit-autofill:focus {
         width: 175px;
         margin: 10px;
       }
+      /* .resetRow {
+        display:flex;
+        justify-content: center; */
+      /* } */
       .resetButton:hover, .totalButton:hover, .checkoutButton:hover {
         border-color: #aed3ce;
         background-color: #aed3ce;
