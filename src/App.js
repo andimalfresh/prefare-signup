@@ -1,13 +1,10 @@
 import React, { Component } from 'react'
-import Signup from './components/Signup'
+// import Signup from './components/Signup'
 // import Progressbar from './components/ProgressBar'
-import Plan from './components/Plan'
 import Buildyourplan from './components/Buildyourplan'
 // import Shippinginfo from './components/Shippinginfo'
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
-
-const delay = ms => new Promise(res => setTimeout(res, ms))
 
 class App extends Component {
   constructor() {
@@ -37,11 +34,9 @@ class App extends Component {
       showInputFormF: false,
       showInputFormG: false,
       showInputFormH: false,
-      showRecommendedPlan: false,
-      showBuildMenu: false,
       menuItems: [],
       retail_price: '',
-      menuItemSelected:'Select Menu',
+      menuItemSelected:'',
       menuMeatsHighlighted: false,
       menuVeggieHighlighted: false,
       menuGlutenHighlighted: false,
@@ -73,11 +68,6 @@ class App extends Component {
       answer: null,
       totalCalculated: 0
     }
-  }
-  
-  waitFunction = async () => {
-    await delay(500);
-    console.log('Wait func for orderUpdate');
   }
 
   componentDidMount() {
@@ -165,19 +155,9 @@ class App extends Component {
   handleFormH = () => {
     console.log('FormH')
     this.setState({
-        showInputFormH: true,
-        showRecommendedPlan: true,
+        showInputFormH: true
     })
   }
-  changeOver = () => {
-    this.setState({
-      showRecommendedPlan:false,
-      showBuildMenu: true,
-      meals_per_week: '0',
-      number_of_servings: '0'
-    })
-  }
-
 
   // End Sign Up Functions
   // Build Functions
@@ -185,9 +165,6 @@ class App extends Component {
     this.setState ({
       meals_per_week : event.target.value
     })
-    this.calculateOrderTotal()
-    this.waitFunction()
-    this.forceUpdate()
   }
   getNumberOfServings = (event) => {
     this.setState ({
@@ -196,41 +173,38 @@ class App extends Component {
     this.setState ({
       number_of_servings : event.target.value
     })
-    this.calculateOrderTotal()
-    this.waitFunction()
-    this.forceUpdate()
   }
 
   meatSelected = () => {
     this.setState({ 
       menuMeatsHighlighted: true,
-      menuItemSelected: 'Meats and Veggies'
+      menuItemSelected: "Meats"
     })
   }
   veggieSelected = () => {
     this.setState({ 
       menuVeggieHighlighted: true,
-      menuItemSelected: 'Vegetarian',
+      menuItemSelected: "Vegetarian",
       vegetarian: true
     })
   }
   glutenSelected = () => {
     this.setState({ 
       menuGlutenHighlighted: true,
-      menuItemSelected: 'Gluten Free',
+      menuItemSelected: "Gluten Free",
       gluten_free: true
     })
   }
   kidsSelected = () => {
     this.setState({ 
       menuKidsHighlighted: true,
-      menuItemSelected: 'Kid Friendly'
+      menuItemSelected: "Kid Friendly"
     })
   }
   resetForm = () => {
+    this.calculateOrderTotal()
     this.setState({
       totalCalculated: 0,
-      menuItemSelected: 'Select Menu',
       menuMeatsHighlighted: false,
       menuVeggieHighlighted: false,
       menuGlutenHighlighted: false,
@@ -274,11 +248,10 @@ class App extends Component {
 
 
   render() {
-  
   return (
     <div className='App'>
       {/* <Progressbar  /> */}
-      <Signup
+      {/* <Signup
         name={this.state.name}
         getQuestionAnswer={this.getQuestionAnswer} 
         handleFormB={this.handleFormB} 
@@ -302,18 +275,7 @@ class App extends Component {
         meals_per_week={this.state.meals_per_week}
         number_of_servings={this.state.number_of_servings}
         x={this.state.x}
-      />
-      <Plan
-              checkDietRestrictions={this.checkDietRestrictions}
-              mealPlan={this.state.mealPlan}
-              meals_per_week={this.state.meals_per_week}
-              number_of_servings={this.state.number_of_servings}
-              x={this.state.x}
-              showRecommendedPlan={this.state.showRecommendedPlan}
-              handleFormH={this.handleFormH}
-              changeOver={this.changeOver}
-              name={this.state.name}
-       />
+      /> */}
       <Buildyourplan
          meatSelected={this.meatSelected}
          veggieSelected={this.veggieSelected}
@@ -332,8 +294,6 @@ class App extends Component {
          resetForm={this.resetForm}
          calculateOrderTotal={this.calculateOrderTotal}
          totalCalculated={this.state.totalCalculated} 
-         showBuildMenu={this.state.showBuildMenu}
-         changeOver={this.changeOver}
        />
       {/* <Shippinginfo /> */}
     </div>
